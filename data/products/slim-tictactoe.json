@@ -1,0 +1,73 @@
+{
+  "name": "Slim Tic Tac Toe - Compact Travel-Friendly Game",
+  "cat": "Games & Puzzles",
+  "lede": "Experience endless fun with our Compact Slim Tic Tac Toe - Travel-Friendly Game. This sleek and stylish game is designed for easy transport and on-the-go entertainment. Made from durable materials, our slim Tic Tac Toe set is great for travel, family gatherings, and game nights. Whether you're a child or an adult, this game is a timeless classic that guarantees hours of enjoyment.",
+  "price": "₹ 700",
+  "model": "/models/slim-tictactoe.gltf",
+  "finishes": [
+    [
+      "Walnut",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/Slim_Games_XOX_-_BG.png"
+    ],
+    [
+      "Natural",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/Slim_Games_XOX-BG.png"
+    ],
+    [
+      "Black",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/Slim_Games_XOX_-_BG01.png"
+    ]
+  ],
+  "specs": [
+    [
+      "Dimensions",
+      "W 10cm x L10 cm x H 1cm"
+    ],
+    [
+      "Weight",
+      "64gms"
+    ],
+    [
+      "Material",
+      "Birch Ply + Acrylic"
+    ],
+    [
+      "Country of Origin",
+      "Made in India"
+    ]
+  ],
+  "feats": [
+    "Compact and Portable",
+    "Durable Materials",
+    "Stylish Design",
+    "Easy to Play",
+    "Fun for All Ages",
+    "Great Promotional Item"
+  ],
+  "care": "Dust Periodically with a microfiber cloth and avoid excess heat and light and moisture",
+  "buy": "https://latticelane.com/products/compact-slim-tic-tac-toe-travel-friendly-game",
+  "perfectFor": "Corporate gifting, client appreciation, employee rewards, team-building events, and professional settings where a touch of fun and sophistication is desired",
+  "short": "Slim Tic Tac Toe",
+  "bulk": {
+    "moq": 25,
+    "tiers": [
+      [
+        25,
+        "₹ 644"
+      ],
+      [
+        50,
+        "₹ 602"
+      ],
+      [
+        100,
+        "₹ 560"
+      ]
+    ],
+    "lead": "10 working days",
+    "engraving": "Logo engraving included",
+    "dispatch": "Dispatch in 2-3 working days",
+    "shipping": "Free shipping on prepaid orders above ₹2,500",
+    "returns": "10-day returns"
+  }
+}

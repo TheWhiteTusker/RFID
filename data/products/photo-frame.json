@@ -1,0 +1,73 @@
+{
+  "name": "Magnetic Photo Frame - (4x4) Sleek and Versatile",
+  "cat": "Home & Decor",
+  "lede": "Showcase your favorite memories effortlessly with our Magnetic Photo Frame. Designed for convenience and style, this frame allows you to easily display and change your photos without any hassle. The magnetic feature allows for long losting frames that are highly durable and not too delicate. Crafted from Rubber Wood, it features a sleek and modern design that complements any decor.",
+  "price": "₹ 850",
+  "model": "/models/photo-frame.gltf",
+  "finishes": [
+    [
+      "Walnut",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/square_walnut2_with_BG.png"
+    ],
+    [
+      "Natural",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/Square_natural2_with_BG.png"
+    ],
+    [
+      "Black",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/squareblack2withBG.png"
+    ]
+  ],
+  "specs": [
+    [
+      "Dimensions",
+      "W 10 cm x L 2.2cm x H 10 cm"
+    ],
+    [
+      "Weight",
+      "114gms w/ note cards"
+    ],
+    [
+      "Material",
+      "Rubber Wood + Magnets"
+    ],
+    [
+      "Country of Origin",
+      "Made in India"
+    ]
+  ],
+  "feats": [
+    "Easy Display & Change",
+    "High-Quality Materials",
+    "Sleek and Modern Design",
+    "Versatile Use",
+    "Secure Hold",
+    "Perfect Gift"
+  ],
+  "care": "Dust Periodically with a microfiber cloth and avoid excess heat and light and moisture",
+  "buy": "https://latticelane.com/products/phot-frame-4x4",
+  "perfectFor": "Corporate gifting, home, office display, and keeping cherished moments on show",
+  "short": "Photo Frame 4×4",
+  "bulk": {
+    "moq": 25,
+    "tiers": [
+      [
+        25,
+        "₹ 782"
+      ],
+      [
+        50,
+        "₹ 731"
+      ],
+      [
+        100,
+        "₹ 680"
+      ]
+    ],
+    "lead": "10 working days",
+    "engraving": "Logo engraving included",
+    "dispatch": "Dispatch in 2-3 working days",
+    "shipping": "Free shipping on prepaid orders above ₹2,500",
+    "returns": "10-day returns"
+  }
+}

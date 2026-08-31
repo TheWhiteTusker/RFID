@@ -1,0 +1,17 @@
+{
+  "name": "latticelane-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "RFID-driven product showcase kiosk for Lattice Lane",
+  "main": "server.js",
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "models": "node tools/gen-models.js",
+    "pack": "node tools/pack.js",
+    "pack:watch": "node tools/pack.js --watch"
+  },
+  "engines": { "node": ">=20" }
+}

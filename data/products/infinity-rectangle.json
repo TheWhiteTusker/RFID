@@ -1,0 +1,73 @@
+{
+  "name": "Infinity Lamp - Rectangle Glass Design",
+  "cat": "Lighting",
+  "lede": "The infinity lamp creates a stunning optical illusion of candles stretching off into the distance. Thanks to its clever optics, the infinity lamp makes one candle look like hundreds stretching off into infinity. The Infinity lamp features two rectangled glass mirrors, which, when positioned in the wooden base, create a round tunnel of reflecting lights. This modern lamp features a sleek square glass construction that creates an infinite illusion of light, adding a unique and stylish touch to any room.",
+  "price": "₹ 3,500",
+  "model": "/models/infinity-rectangle.gltf",
+  "finishes": [
+    [
+      "Walnut",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/InfiSmallRectWall.png"
+    ],
+    [
+      "Natural",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/InfiSmallRectNatural.png"
+    ],
+    [
+      "Black",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/InfiSmallRectBlack.png"
+    ]
+  ],
+  "specs": [
+    [
+      "Dimensions",
+      "W 13.8 cm x L 18.8 cm x H 7.6 cm"
+    ],
+    [
+      "Weight",
+      "844gms w/ Box"
+    ],
+    [
+      "Material",
+      "Rubber Wood + Glass + Birch Ply"
+    ],
+    [
+      "Country of Origin",
+      "Made in India"
+    ]
+  ],
+  "feats": [
+    "Infinity Illusion",
+    "Modern Design",
+    "High-Quality Materials",
+    "Energy-Efficient LED",
+    "Versatile Use",
+    "Perfect Gift"
+  ],
+  "care": "Dust Periodically with a microfiber cloth and avoid excess heat and light and moisture",
+  "buy": "https://latticelane.com/products/infinity-small-rectangle",
+  "perfectFor": "Home decor, office lighting, special events, gifts, and anyone looking to add a unique lighting element to their space",
+  "short": "Infinity Lamp · Rectangle",
+  "bulk": {
+    "moq": 25,
+    "tiers": [
+      [
+        25,
+        "₹ 3,220"
+      ],
+      [
+        50,
+        "₹ 3,010"
+      ],
+      [
+        100,
+        "₹ 2,800"
+      ]
+    ],
+    "lead": "10 working days",
+    "engraving": "Logo engraving included",
+    "dispatch": "Dispatch in 2-3 working days",
+    "shipping": "Free shipping on prepaid orders above ₹2,500",
+    "returns": "10-day returns"
+  }
+}

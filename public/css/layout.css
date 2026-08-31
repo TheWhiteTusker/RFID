@@ -1,0 +1,60 @@
+/* Full-bleed kiosk: header / stage / rail, never a page scrollbar. */
+main{flex:1;min-height:0;display:grid;align-items:center;
+  gap:clamp(18px,2.6vw,56px);
+  grid-template-columns:minmax(0,1fr) minmax(0,1.22fr) minmax(0,1fr);
+  padding:clamp(14px,2.2vh,32px) calc(var(--arrow) + var(--pad));
+  max-width:1680px;margin:0 auto;width:100%;position:relative;z-index:1}
+
+main > section{max-height:100%;overflow-y:auto;scrollbar-width:none}
+main > section::-webkit-scrollbar{display:none}
+
+/* The copy sits on its own cream ground so the arc linework never crosses text. */
+.left,.right{background:var(--cream);padding:clamp(12px,1.4vw,22px);border-radius:3px}
+
+/* align-self:stretch is required — the grid's align-items:center would size .stage
+   to its content and collapse .frame to zero height, and the model would vanish. */
+.stage{display:flex;flex-direction:column;justify-content:center;
+  overflow:visible !important;align-self:stretch;position:relative}
+
+/* Never put container-type here: size containment stops model-viewer from ever
+   deciding the element is visible, so it loads but never draws a frame. */
+.frame{position:relative;flex:1;min-height:290px}
+.frame::before,.frame::after{content:"";position:absolute;top:50%;left:50%;
+  translate:-50% -50%;width:min(96%,62vh);aspect-ratio:1;border-radius:50%}
+.frame::before{background:radial-gradient(circle,#fff 0%,var(--linen) 38%,
+  var(--sage-soft) 62%,rgba(84,101,91,0) 76%)}
+.frame::after{border:1px solid var(--sage-line);pointer-events:none}
+
+model-viewer{width:100%;height:100%;position:relative;--poster-color:transparent}
+
+/* Arrows pinned to either edge. */
+.nav{position:fixed;top:calc(50% + 10px);translate:0 -50%;z-index:5;
+  width:var(--arrow);height:var(--arrow);border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;
+  border:none;background:var(--sage);color:var(--cream);
+  box-shadow:0 2px 14px rgba(61,74,67,.18);
+  transition:background .2s,transform .2s}
+.nav:hover{background:var(--sage-deep);transform:scale(1.07)}
+.nav.prev{left:calc(var(--pad) / 2)} .nav.next{right:calc(var(--pad) / 2)}
+.nav svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8}
+
+/* Product rail along the bottom. */
+.rail{flex:none;position:relative;z-index:2;background:var(--sage);color:var(--cream);
+  display:flex;align-items:center;gap:14px;padding:9px var(--pad)}
+.railhead{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(250,248,238,.6);white-space:nowrap}
+.chips{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;flex:1}
+.chips::-webkit-scrollbar{display:none}
+.count{font-size:10.5px;letter-spacing:.2em;color:rgba(250,248,238,.6);white-space:nowrap}
+.count b{color:var(--cream);font-weight:500}
+
+.swap{animation:up .55s cubic-bezier(.22,.8,.28,1) backwards}
+.stage.swap{animation-delay:.04s} .right.swap{animation-delay:.1s}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+
+@media(max-width:1050px){
+  body{overflow:auto}
+  main{grid-template-columns:1fr;padding:24px var(--pad)}
+  .stage{order:-1} .frame{min-height:50vh}
+  .railhead{display:none}
+}

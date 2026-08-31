@@ -1,0 +1,16 @@
+<!doctype html><meta charset=utf-8>
+<body style="font:15px monospace;white-space:pre-wrap;padding:12px">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+<model-viewer id=mv style="width:120px;height:90px"></model-viewer>
+<div id=out>pending</div>
+<script>
+const o=document.getElementById('out'), mv=document.getElementById('mv');
+const log=[]; const say=m=>{log.push(m);o.textContent=log.join('\n');};
+const show=e=>{ if(!e) return '(none)';
+  if(e instanceof Error) return e.name+': '+e.message+'\n  '+String(e.stack).split('\n').slice(1,4).join('\n  ');
+  return typeof e==='object' ? JSON.stringify(e,Object.getOwnPropertyNames(e)) : String(e); };
+addEventListener('unhandledrejection',e=>say('REJECT: '+show(e.reason)));
+mv.addEventListener('error',e=>say('MV ERROR type='+e.detail.type+'\nsourceError -> '+show(e.detail.sourceError)));
+mv.addEventListener('load',()=>say('LOADED'));
+mv.setAttribute('src',new URLSearchParams(location.search).get('s'));
+</script></body>

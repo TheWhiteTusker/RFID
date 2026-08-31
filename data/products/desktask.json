@@ -1,0 +1,72 @@
+{
+  "name": "DeskTask - To-Do List, Pen Stand, Stationery Holder, Mobile Stand",
+  "cat": "Desk & Workspace",
+  "lede": "Upgrade your workspace with the DeskTask Desk Organizer, a versatile and stylish solution designed to keep your desk clutter-free and your productivity on track. Featuring a built-in To-Do List, Pen Stand, Stationery Holder, and Mobile Stand, this all-in-one organizer is perfect for managing your daily tasks and essential items efficiently.",
+  "price": "₹ 3,630",
+  "model": "/models/desktask.gltf",
+  "finishes": [
+    [
+      "Walnut",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/Desk_Task_Side_-_High_Resulation_1c22316f-96e7-433e-8a1e-db7daf87e524.png"
+    ],
+    [
+      "Natural",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/Desk_Task_Side_-_High_Resulation_beb9ab53-6fc4-4b07-9117-894c7b526982.png"
+    ],
+    [
+      "Black",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/New_Size_Color_03_1.png"
+    ]
+  ],
+  "specs": [
+    [
+      "Dimensions",
+      "W 17.6 cm x L 10cm x H 3.3cm"
+    ],
+    [
+      "Weight",
+      "635gms w/ note cards"
+    ],
+    [
+      "Material",
+      "Rubber Wood"
+    ],
+    [
+      "Country of Origin",
+      "Made in India"
+    ]
+  ],
+  "feats": [
+    "Integrated To-Do List",
+    "Pen Stand",
+    "Stationery Holder",
+    "Mobile Stand",
+    "Compact and Stylish Design"
+  ],
+  "care": "Dust Periodically with a microfiber cloth and avoid excess heat and light and moisture",
+  "buy": "https://latticelane.com/products/desktask-desk-organizer-to-do-list-pen-stand-stationery-holder-mobile-stand",
+  "perfectFor": "Professionals, students, and anyone looking to optimize their workspace with a functional and stylish desk organizer",
+  "short": "DeskTask",
+  "bulk": {
+    "moq": 25,
+    "tiers": [
+      [
+        25,
+        "₹ 3,340"
+      ],
+      [
+        50,
+        "₹ 3,122"
+      ],
+      [
+        100,
+        "₹ 2,904"
+      ]
+    ],
+    "lead": "10 working days",
+    "engraving": "Logo engraving included",
+    "dispatch": "Dispatch in 2-3 working days",
+    "shipping": "Free shipping on prepaid orders above ₹2,500",
+    "returns": "10-day returns"
+  }
+}

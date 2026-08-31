@@ -1,0 +1,73 @@
+{
+  "name": "Rubber Wood Game Box - Tic Tac Toe and Brainvita Set",
+  "cat": "Games & Puzzles",
+  "lede": "Discover double the fun with our 2-in-1 Rubber Wood Game Box - Tic Tac Toe and Brainvita Set. Expertly crafted from premium rubber wood, this game box is designed for durability and style. Featuring two classic games in one compact set, you can enjoy Tic Tac Toe on one side and Brainvita on the other.",
+  "price": "₹ 2,250",
+  "model": "/models/game-box.gltf",
+  "finishes": [
+    [
+      "Walnut",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/Gamebox_walnut2_with_BG.png"
+    ],
+    [
+      "Natural",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/Gamebox_natural_with_BG.png"
+    ],
+    [
+      "Black",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/gameboxblack_3_withBG.png"
+    ]
+  ],
+  "specs": [
+    [
+      "Dimensions",
+      "W 17.2cm x L 12.6 cm x H 3.7cm"
+    ],
+    [
+      "Weight",
+      "638gms"
+    ],
+    [
+      "Material",
+      "Rubber Wood + Acrylic + Metal Marble"
+    ],
+    [
+      "Country of Origin",
+      "Made in India"
+    ]
+  ],
+  "feats": [
+    "2-in-1 Game Set",
+    "Premium Rubber Wood",
+    "Compact and Portable",
+    "Elegant Craftsmanship",
+    "Suitable for All Ages",
+    "Perfect Gift"
+  ],
+  "care": "Dust Periodically with a microfiber cloth and avoid excess heat and light and moisture",
+  "buy": "https://latticelane.com/products/2-in-1-rubber-wood-game-box-tic-tac-toe-and-brainvita-set",
+  "perfectFor": "Corporate gifting, client appreciation, professional events, and enhancing your workspace with a touch of fun and sophistication",
+  "short": "Game Box",
+  "bulk": {
+    "moq": 25,
+    "tiers": [
+      [
+        25,
+        "₹ 2,070"
+      ],
+      [
+        50,
+        "₹ 1,935"
+      ],
+      [
+        100,
+        "₹ 1,800"
+      ]
+    ],
+    "lead": "10 working days",
+    "engraving": "Logo engraving included",
+    "dispatch": "Dispatch in 2-3 working days",
+    "shipping": "Free shipping on prepaid orders above ₹2,500",
+    "returns": "10-day returns"
+  }
+}

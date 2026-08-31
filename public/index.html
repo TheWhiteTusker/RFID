@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lattice Lane — Showcase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/layout.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/cinematic.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+<script type="module" src="/js/main.js"></script>
+</head>
+<body>
+
+<svg class="arcs" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <circle cx="1330" cy="70" r="560"/>
+  <circle cx="1330" cy="70" r="330"/>
+  <circle cx="210" cy="880" r="470"/>
+  <path d="M0 236 H1600"/><path d="M0 690 H1600"/>
+  <path d="M1128 0 V900"/><path d="M470 0 V900"/>
+</svg>
+
+<header>
+  <div class="wordmark">Lattice Lane<small>House of Gifting</small></div>
+</header>
+
+<button class="nav prev" id="prev" aria-label="Previous product">
+  <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+</button>
+<button class="nav next" id="next" aria-label="Next product">
+  <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+</button>
+
+<main>
+  <section class="left">
+    <p class="eyebrow" id="cat"></p>
+    <h1 id="pname"></h1>
+    <p class="lede" id="lede"></p>
+    <p class="price" id="price"><span id="unit"></span><em id="moq"></em></p>
+    <dl id="specs"></dl>
+  </section>
+
+  <section class="stage" id="stage">
+    <div class="frame">
+      <model-viewer id="mv" camera-controls interpolation-decay="220"
+        shadow-intensity="1" shadow-softness="0.9" exposure="1.1"
+        environment-image="neutral" interaction-prompt="none"
+        touch-action="pan-y" ar></model-viewer>
+    </div>
+      <canvas class="laser" id="laser" aria-hidden="true"></canvas>
+    <p class="hint" id="hint">Drag to explore</p>
+    <div class="finishes" id="finishes"></div>
+    <div class="personalise" id="personalise">
+      <input id="engraveName" type="text" maxlength="22" autocomplete="off"
+        placeholder="Add a name or company" aria-label="Name to engrave">
+      <button id="engraveGo">Engrave</button>
+    </div>
+    <button class="cinebtn" id="explode">Show what's inside</button>
+  </section>
+
+  <section class="right">
+    <p class="eyebrow">Bulk &amp; Corporate</p>
+    <table class="tiers"><tbody id="tiers"></tbody></table>
+    <ul class="terms" id="terms"></ul>
+    <p class="eyebrow" style="margin-top:16px">Key Features</p>
+    <ul class="feats" id="feats"></ul>
+    <a class="cta" id="buy" href="#" target="_blank" rel="noopener">View on Lattice Lane</a>
+  </section>
+</main>
+
+<button class="cinebtn" id="reassemble" hidden>Back to product</button>
+
+<div class="rail">
+  <span class="railhead">The Collection</span>
+  <div class="chips" id="chips"></div>
+  <span class="count" id="count"></span>
+</div>
+
+</body>
+</html>

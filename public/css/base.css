@@ -1,0 +1,49 @@
+/* Palette and page ground. Cream is the major colour, sage does the heavy lifting. */
+:root{
+  --cream:#FAF8EE; --linen:#F1EBE0; --sand:#E4CBAA;
+  --sage:#54655B; --sage-deep:#3D4A43; --wood:#68583C;
+  --sage-line:rgba(84,101,91,.22); --sage-soft:rgba(84,101,91,.055);
+  --line:rgba(84,101,91,.18); --muted:#7B7B7B;
+  --pad:clamp(18px,3vw,52px);
+  --arrow:clamp(44px,4vw,54px);
+}
+
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+
+body{
+  background:var(--cream); color:var(--sage);
+  font:300 16px/1.6 Figtree,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column; overflow:hidden;
+}
+
+h1,.eyebrow,.num,.wordmark,.price,.cta,.swatch,.count,.chip,.railhead,.cinebtn,.tiers{
+  font-family:Archivo,system-ui,sans-serif}
+
+/* The brand's arc linework, behind everything. */
+.arcs{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.arcs *{fill:none;stroke:var(--sage-line);stroke-width:1}
+
+/* Sage nav bar, matching latticelane.com */
+header{flex:none;background:var(--sage);color:var(--cream);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px var(--pad);position:relative;z-index:2}
+.wordmark{font-weight:500;letter-spacing:.32em;font-size:14px;
+  text-transform:uppercase;line-height:1.25}
+.wordmark small{display:block;font-size:8.5px;letter-spacing:.3em;opacity:.75;margin-top:2px}
+
+.eyebrow{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--sage);
+  display:flex;align-items:center;gap:10px;font-weight:500}
+.eyebrow::after{content:"";height:1px;flex:1;background:var(--sage-line)}
+
+h1{font-size:clamp(21px,2.05vw,32px);line-height:1.16;letter-spacing:-.015em;
+  font-weight:500;color:var(--sage-deep);margin:13px 0 11px}
+.lede{color:var(--muted);max-width:46ch;font-size:14px}
+
+.price{font-size:20px;color:var(--sage-deep);margin-top:15px;
+  font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:10px}
+.price em{font-style:normal;font-family:Figtree,sans-serif;font-size:11.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}

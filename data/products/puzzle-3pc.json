@@ -1,0 +1,73 @@
+{
+  "name": "3 Piece Puzzle - Brain Teaser",
+  "cat": "Games & Puzzles",
+  "lede": "Discover the perfect blend of fun and sophistication with our 3 Pc Wooden Puzzle Set. Crafted from high-quality wood, these puzzles offer a delightful challenge while adding a touch of elegance to any setting. Ideal for corporate gifting, this set makes a thoughtful and unique gift that is sure to impress clients, colleagues, and business partners.",
+  "price": "₹ 400",
+  "model": "/models/puzzle-3pc.gltf",
+  "finishes": [
+    [
+      "Walnut",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/3DPuzzelWalnut-Bg.png"
+    ],
+    [
+      "Natural",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/3DPuzzelNatural-Bg.png"
+    ],
+    [
+      "Black",
+      "https://cdn.shopify.com/s/files/1/0657/5482/4869/files/3DPuzzelBlack-BG.png"
+    ]
+  ],
+  "specs": [
+    [
+      "Dimensions",
+      "W 14.5cm x L13cm x H 5.5cm"
+    ],
+    [
+      "Weight",
+      "40gms"
+    ],
+    [
+      "Material",
+      "Rubber Wood"
+    ],
+    [
+      "Country of Origin",
+      "Made in India"
+    ]
+  ],
+  "feats": [
+    "Challenging Fun",
+    "Sophisticated Decor",
+    "Durable Construction",
+    "Unique Gift",
+    "Versatile Placement",
+    "Perfect gift"
+  ],
+  "care": "Dust Periodically with a microfiber cloth and avoid excess heat and light and moisture",
+  "buy": "https://latticelane.com/products/3-pc-puzzle",
+  "perfectFor": "Corporate gifting, client appreciation, office decor, team-building activities, and anyone who enjoys a sophisticated challenge",
+  "short": "3 Piece Puzzle",
+  "bulk": {
+    "moq": 25,
+    "tiers": [
+      [
+        25,
+        "₹ 368"
+      ],
+      [
+        50,
+        "₹ 344"
+      ],
+      [
+        100,
+        "₹ 320"
+      ]
+    ],
+    "lead": "10 working days",
+    "engraving": "Logo engraving included",
+    "dispatch": "Dispatch in 2-3 working days",
+    "shipping": "Free shipping on prepaid orders above ₹2,500",
+    "returns": "10-day returns"
+  }
+}
