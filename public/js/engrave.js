@@ -13,6 +13,8 @@ const CHAR = "#2A1D12";         // burnt timber, not black ink
 const GLOW = "255,150,60";      // the wood still hot where the point just passed
 const DURATION = 3600;
 const MAX_UPLOADS = 40;         // budget for the whole pass, whatever the name length
+const ORBIT = 130;              // close-up radius, % of the framing distance
+const SCALE = 100 / ORBIT;      // so the model covers this much of the framed square
 
 export function createEngraver(mv, showcase) {
   const input = document.getElementById("engraveName");
@@ -99,10 +101,16 @@ export function createEngraver(mv, showcase) {
     mat.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]);
   }
 
-  /** The engraving band on screen, plus texture->screen mapping for the beams. */
+  /** The engraving band on screen, plus texture->screen mapping for the beams.
+      Measured against the model's framed square — model-viewer fits the short
+      side of the canvas — rather than the canvas itself, so the band still lands
+      on the plate now that the canvas is the whole viewport. Eyeball constants;
+      nudge them if a model sits its plate somewhere else. */
   const plate = () => {
     const r = canvas.getBoundingClientRect();
-    const x0 = r.width * 0.22, x1 = r.width * 0.78, y = r.height * 0.58;
+    const fit = Math.min(r.width, r.height) * SCALE;
+    const x0 = r.width / 2 - fit * 0.28, x1 = r.width / 2 + fit * 0.28;
+    const y = r.height / 2 + fit * 0.1;
     const h = (x1 - x0) * (H / W);
     return { x0, x1, y, toScreen: (tx, ty) =>
       ({ x: x0 + (tx / W) * (x1 - x0), y: y + ((ty - H / 2) / H) * h }) };
@@ -118,7 +126,8 @@ export function createEngraver(mv, showcase) {
     btn.disabled = true;
     showcase.stop();
     document.body.classList.add("cine", "engraving");
-    mv.cameraOrbit = "0deg 76deg 88%";       // square up to the engraved face
+    mv.cameraOrbit = `0deg 76deg ${ORBIT}%`; // square up to the engraved face,
+                                             // at the closest the clamp allows
     await new Promise((r) => setTimeout(r, 700));
 
     const rounds = Math.ceil(model.burn.length / BEAMS);

@@ -1,0 +1,25 @@
+/* Dev-only bottom rail. Delete this file and its <link> when the kiosk goes live. */
+.rail{flex:none;position:relative;z-index:2;background:var(--sage);color:var(--cream);
+  display:flex;align-items:center;gap:14px;padding:9px var(--pad);
+  transition:opacity .7s ease}
+.railhead{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(250,248,238,.6);white-space:nowrap}
+.chips{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;flex:1}
+.chips::-webkit-scrollbar{display:none}
+.count{font-size:10.5px;letter-spacing:.2em;color:rgba(250,248,238,.6);white-space:nowrap}
+.count b{color:var(--cream);font-weight:500}
+.count,.chip,.railhead{font-family:Archivo,system-ui,sans-serif}
+
+.chip{flex:none;cursor:pointer;border:1px solid rgba(250,248,238,.3);border-radius:999px;
+  background:none;color:var(--cream);padding:7px 15px;white-space:nowrap;
+  font-size:11px;letter-spacing:.05em;transition:all .2s}
+.chip b{font-weight:500}
+.chip em{font-style:normal;color:rgba(250,248,238,.62);margin-left:7px;font-size:10.5px}
+.chip:hover{border-color:var(--cream)}
+.chip[aria-current="true"]{background:var(--cream);border-color:var(--cream);color:var(--sage-deep)}
+.chip[aria-current="true"] em{color:var(--muted)}
+
+/* the reveal clears the chrome away, the rail included */
+body.cine .rail{opacity:0;pointer-events:none}
+
+@media(max-width:1050px){.railhead{display:none}}

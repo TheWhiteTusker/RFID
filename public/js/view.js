@@ -4,13 +4,7 @@ import { FINISH } from "./finish.js";
 
 const $ = (id) => document.getElementById(id);
 
-export function buildChips(products, keys) {
-  $("chips").innerHTML = keys.map((k) =>
-    `<button class="chip" data-k="${k}"><b>${products[k].short}</b>` +
-    `<em>${products[k].price}</em></button>`).join("");
-}
-
-export function render(p, keys, index, finish) {
+export function render(p, finish) {
   $("cat").textContent = p.cat;
   $("pname").textContent = p.name;
   $("lede").textContent = p.lede;
@@ -18,8 +12,6 @@ export function render(p, keys, index, finish) {
   $("moq").textContent = "per unit · MOQ " + p.bulk.moq;
   $("buy").href = p.buy;
   document.title = p.name + " — Lattice Lane";
-
-  $("count").innerHTML = `<b>${pad(index + 1)}</b> / ${pad(keys.length)}`;
 
   $("specs").innerHTML = p.specs
     .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
@@ -40,10 +32,6 @@ export function render(p, keys, index, finish) {
   $("finishes").innerHTML = p.finishes.map(([name]) =>
     `<button class="swatch" data-finish="${name}" aria-pressed="${name === finish}">` +
     `<i style="background:${FINISH[name].dot}"></i>${name}</button>`).join("");
-
-  for (const c of $("chips").children)
-    c.setAttribute("aria-current", c.dataset.k === keys[index]);
-  $("chips").children[index].scrollIntoView({ block: "nearest", inline: "nearest" });
 
   replay();
 }

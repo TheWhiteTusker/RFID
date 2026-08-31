@@ -11,7 +11,12 @@ import { apply as applyFinish } from "./finish.js";
 // theta climbs by 90deg each step so rotation always travels one way and never
 // swings back; phi and radius vary to give height changes and slow push-ins.
 const PHI = [68, 60, 76, 58];
-const RADIUS = ["104%", "94%", "100%", "92%"];
+// 100% is model-viewer's framing distance, but its framing is not tight enough
+// to hold every orientation on a viewport-wide canvas — the model still spilled
+// off the edges at 104%. 130% is the closest that stays inside (and is a fifth
+// smaller on screen); it matches min-camera-orbit in index.html, which clamps
+// anything nearer anyway. Push-ins live in the 130-140 band.
+const RADIUS = ["140%", "132%", "136%", "130%"];
 const STEP_MS = 4500;
 const RESUME_MS = 12000;   // how long to leave the camera alone after a drag
 const CYCLE_FINISH = false; // idle finish cycling — off for now, flip back to restore

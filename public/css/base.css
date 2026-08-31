@@ -5,7 +5,15 @@
   --sage-line:rgba(84,101,91,.22); --sage-soft:rgba(84,101,91,.055);
   --line:rgba(84,101,91,.18); --muted:#7B7B7B;
   --pad:clamp(18px,3vw,52px);
-  --arrow:clamp(44px,4vw,54px);
+  /* Liquid glass: a light pane and a sage-tinted pane, both blurring the arcs behind. */
+  --blur:saturate(180%) blur(18px);
+  --glass:rgba(250,248,238,.55);
+  --glass-tint:rgba(84,101,91,.62);
+  --glass-edge:1px solid rgba(255,255,255,.55);
+  --glass-lift:0 8px 28px rgba(61,74,67,.13),
+    inset 0 1px 0 rgba(255,255,255,.75), inset 0 -1px 0 rgba(84,101,91,.07);
+  --glass-lift-sm:0 4px 16px rgba(61,74,67,.16),
+    inset 0 1px 0 rgba(255,255,255,.4), inset 0 -1px 0 rgba(0,0,0,.06);
 }
 
 *{box-sizing:border-box;margin:0}
@@ -18,7 +26,7 @@ body{
   display:flex; flex-direction:column; overflow:hidden;
 }
 
-h1,.eyebrow,.num,.wordmark,.price,.cta,.swatch,.count,.chip,.railhead,.cinebtn,.tiers{
+h1,.eyebrow,.num,.wordmark,.price,.cta,.swatch,.cinebtn,.tiers{
   font-family:Archivo,system-ui,sans-serif}
 
 /* The brand's arc linework, behind everything. */

@@ -1,11 +1,12 @@
 // Wires routing, data, view, choreography and the explode reveal together.
 
 import * as router from "./router.js";
-import { render, buildChips, markFinish } from "./view.js";
+import { render, markFinish } from "./view.js";
 import { apply as applyFinish, audit } from "./finish.js";
 import { createShowcase } from "./showcase.js";
 import { createExplode } from "./explode.js";
 import { createEngraver } from "./engrave.js";
+import { devNav } from "./devnav.js";   // dev only
 
 const mv = document.getElementById("mv");
 const stage = document.getElementById("stage");
@@ -30,13 +31,13 @@ const explode = createExplode(mv, showcase);
 const engraver = createEngraver(mv, showcase);
 
 router.init(KEYS);
-buildChips(PRODUCTS, KEYS);
+devNav(PRODUCTS, KEYS);                 // dev only
 
 function show() {
   const slug = router.current();
   explode.reset();
   engraver.reset();
-  render(PRODUCTS[slug], KEYS, KEYS.indexOf(slug), finish);
+  render(PRODUCTS[slug], finish);
   stage.classList.add("loading");        // professional models are heavy; say so
   // setAttribute, not .src — assigning the property before the custom element
   // upgrades leaves an own property shadowing the accessor and nothing loads.
@@ -44,7 +45,7 @@ function show() {
   prefetchNeighbours(slug);
 }
 
-// Pull the next and previous models into cache so arrow presses feel instant.
+// Pull the neighbouring models into cache so the next tag read feels instant.
 function prefetchNeighbours(slug) {
   const i = KEYS.indexOf(slug);
   for (const d of [1, -1]) {
@@ -70,18 +71,11 @@ router.onChange(show);
 show();
 
 // ---- input ----
-document.getElementById("prev").onclick = () => router.step(-1);
-document.getElementById("next").onclick = () => router.step(1);
-
+// The kiosk navigates by tag; the arrow keys stay for testing without a reader.
 addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") router.step(-1);
   if (e.key === "ArrowRight") router.step(1);
 });
-
-document.getElementById("chips").onclick = (e) => {
-  const b = e.target.closest(".chip");
-  if (b) router.go(b.dataset.k);
-};
 
 document.getElementById("finishes").onclick = (e) => {
   const b = e.target.closest(".swatch");
