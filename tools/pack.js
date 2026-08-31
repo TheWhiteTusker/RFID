@@ -20,7 +20,11 @@ const ORIG = join("public", "models", "_orig");
 // Patterns rather than exact names: Blender's .001 / .003 suffixes drift on
 // every re-export, the base name does not.
 const WOOD = {
-  "perpetual-calendar": /^(pCube13|Cube\.022)_BAKED/,
+  // Aug 2026 re-export renamed every part. Names carry no meaning, so these two
+  // were picked by sampling the baked base colours: Cube_BAKED (#d6975a, the base
+  // bar) and Plane.007_BAKED (#cc925a, the body). Plane.008 and polySurface15 bake
+  // to near-black and are not timber.
+  "perpetual-calendar": /^(Cube|Plane\.007)_BAKED/,
 };
 
 const { order } = JSON.parse(readFileSync(join("data", "catalogue.json"), "utf8"));

@@ -40,8 +40,13 @@
 
   <section class="stage" id="stage">
     <div class="frame">
+      <!-- Zoom is a dolly only. A zoom gesture in model-viewer moves the radius
+           AND narrows the field of view (30deg framing down to a 12deg floor,
+           ~2.5x magnification), which no camera-orbit limit can hold back, so
+           the FOV floor is pinned to the framing value it starts at. -->
       <model-viewer id="mv" camera-controls interpolation-decay="220"
         min-camera-orbit="auto auto 130%" max-camera-orbit="auto auto 190%"
+        min-field-of-view="30deg"
         shadow-intensity="1" shadow-softness="0.9" exposure="1.1"
         environment-image="neutral" interaction-prompt="none"
         touch-action="pan-y" ar></model-viewer>
