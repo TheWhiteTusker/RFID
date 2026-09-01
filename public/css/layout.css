@@ -1,9 +1,9 @@
 /* Full-bleed kiosk: header / stage, never a page scrollbar. */
 main{flex:1;min-height:0;display:grid;align-items:center;
-  gap:clamp(18px,2.6vw,56px);
-  grid-template-columns:minmax(0,1fr) minmax(0,1.22fr) minmax(0,1fr);
-  padding:clamp(14px,2.2vh,32px) var(--pad);
-  max-width:1680px;margin:0 auto;width:100%;position:relative;z-index:1}
+  gap:clamp(14px,2.6vw,52px);
+  grid-template-columns:minmax(0,1fr) minmax(0,1.38fr) minmax(0,1fr);
+  padding:clamp(12px,2vh,28px) var(--pad);
+  width:100%;position:relative;z-index:1}
 
 main > section{max-height:100%;overflow-y:auto;scrollbar-width:none}
 main > section::-webkit-scrollbar{display:none}
@@ -11,7 +11,7 @@ main > section::-webkit-scrollbar{display:none}
 /* The copy sits on a glass pane: the arc linework stays visible but blurred behind it. */
 .left,.right{background:var(--glass);backdrop-filter:var(--blur);
   -webkit-backdrop-filter:var(--blur);border:var(--glass-edge);
-  box-shadow:var(--glass-lift);padding:clamp(12px,1.4vw,22px);border-radius:20px}
+  box-shadow:var(--glass-lift);padding:clamp(14px,1.25vw,24px);border-radius:clamp(14px,1.2vw,22px)}
 
 /* align-self:stretch is required — the grid's align-items:center would size .stage
    to its content and collapse .frame to zero height, and the model would vanish. */

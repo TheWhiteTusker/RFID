@@ -18,10 +18,22 @@ const KEYS = Object.keys(PRODUCTS);
 
 let finish = "Natural";
 
+// A delivery whose wood colour is baked into its texture ships one model per
+// finish and cannot be tinted, so switching finish means switching file.
+const modelFor = (p, f) => p.models?.[f] || p.model;
+
 const ctx = {
   product: () => PRODUCTS[router.current()],
   finish: () => finish,
-  setFinish: (f) => { finish = f; },
+  // the one place a finish changes, so swatches and idle cycling behave alike
+  setFinish(f) {
+    finish = f;
+    markFinish(f);
+    const url = modelFor(this.product(), f);
+    if (mv.getAttribute("src") === url) return applyFinish(mv, f);
+    stage.classList.add("loading");
+    mv.setAttribute("src", url);
+  },
   pinned: () => router.isPinned(),
   next: () => router.step(1),
 };
@@ -41,7 +53,7 @@ function show() {
   stage.classList.add("loading");        // professional models are heavy; say so
   // setAttribute, not .src — assigning the property before the custom element
   // upgrades leaves an own property shadowing the accessor and nothing loads.
-  mv.setAttribute("src", PRODUCTS[slug].model);
+  mv.setAttribute("src", modelFor(PRODUCTS[slug], finish));
   prefetchNeighbours(slug);
 }
 
@@ -60,8 +72,10 @@ function prefetchNeighbours(slug) {
 
 mv.addEventListener("load", () => {
   stage.classList.remove("loading");
-  audit(mv, router.current());          // shout early if an export is unusable
-  applyFinish(mv, finish);
+  if (!ctx.product().models) {           // a baked finish is already correct
+    audit(mv, router.current());        // shout early if an export is unusable
+    applyFinish(mv, finish);
+  }
   explode.refresh();                    // hide the button when there is no clip
   engraver.refresh();                   // and the name field when there is no plate
   showcase.start();
@@ -79,8 +93,5 @@ addEventListener("keydown", (e) => {
 
 document.getElementById("finishes").onclick = (e) => {
   const b = e.target.closest(".swatch");
-  if (!b) return;
-  finish = b.dataset.finish;
-  markFinish(finish);
-  applyFinish(mv, finish);
+  if (b) ctx.setFinish(b.dataset.finish);
 };

@@ -5,9 +5,6 @@
 // camera-orbit values on its own (interpolation-decay), so setting the target
 // is all we do — no animation loop.
 
-import { markFinish } from "./view.js";
-import { apply as applyFinish } from "./finish.js";
-
 // theta climbs by 90deg each step so rotation always travels one way and never
 // swings back; phi and radius vary to give height changes and slow push-ins.
 const PHI = [68, 60, 76, 58];
@@ -38,8 +35,6 @@ export function createShowcase(mv, ctx) {
     if (CYCLE_FINISH) {
       const names = ctx.product().finishes.map((f) => f[0]);
       ctx.setFinish(names[step % names.length]);
-      markFinish(ctx.finish());
-      applyFinish(mv, ctx.finish());
     }
 
     // with no product pinned by a tag, browse the catalogue unattended

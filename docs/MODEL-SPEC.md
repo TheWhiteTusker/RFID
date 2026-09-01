@@ -18,7 +18,7 @@ File names must match exactly — the app loads them by name:
 | `infinity-rectangle.glb` | Infinity Lamp — Rectangle Glass |
 | `photo-frame.glb` | Magnetic Photo Frame 4×4 |
 | `desktask.glb` | DeskTask Organiser |
-| `perpetual-calendar.glb` | Perpetual Calendar |
+| `perpetual-calendar-{walnut,natural,black}.glb` | Perpetual Calendar (finish baked in, one file each) |
 
 ## Non-negotiables
 

@@ -3,7 +3,7 @@
   "cat": "Games & Puzzles",
   "lede": "Discover the perfect blend of fun and sophistication with our 3 Pc Wooden Puzzle Set. Crafted from high-quality wood, these puzzles offer a delightful challenge while adding a touch of elegance to any setting. Ideal for corporate gifting, this set makes a thoughtful and unique gift that is sure to impress clients, colleagues, and business partners.",
   "price": "₹ 400",
-  "model": "/models/puzzle-3pc.gltf",
+  "model": "/models/puzzle-3pc.glb",
   "finishes": [
     [
       "Walnut",

@@ -3,7 +3,12 @@
   "cat": "Home & Decor",
   "lede": "Showcase your favorite memories effortlessly with our Magnetic Photo Frame. Designed for convenience and style, this frame allows you to easily display and change your photos without any hassle. The magnetic feature allows for long losting frames that are highly durable and not too delicate. Crafted from Rubber Wood, it features a sleek and modern design that complements any decor.",
   "price": "₹ 850",
-  "model": "/models/photo-frame.gltf",
+  "model": "/models/photo-frame-natural.glb",
+  "models": {
+    "Walnut": "/models/photo-frame-walnut.glb",
+    "Natural": "/models/photo-frame-natural.glb",
+    "Black": "/models/photo-frame-black.glb"
+  },
   "finishes": [
     [
       "Walnut",

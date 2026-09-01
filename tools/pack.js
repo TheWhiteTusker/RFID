@@ -6,7 +6,9 @@
 //
 // One folder per product: drop the .gltf, its .bin and every texture into
 // public/models/_orig/<slug>/ exactly as delivered — nothing here writes back to
-// them. Widths come from each product's own Dimensions spec, so no number is
+// them. When the finish is baked into the texture rather than tintable, give it
+// a subfolder per finish (black/, natural/, walnut/) and each packs to its own
+// <slug>-<finish>.glb, which the page swaps between. Widths come from each product's own Dimensions spec, so no number is
 // ever typed twice, and the wood naming below is applied during the pack, since
 // a fresh Blender export always arrives without it.
 
@@ -29,12 +31,25 @@ const WOOD = {
 
 const { order } = JSON.parse(readFileSync(join("data", "catalogue.json"), "utf8"));
 
+const gltfIn = (dir) => readdirSync(dir).find((f) => f.toLowerCase().endsWith(".gltf"));
+
 /** Pack one delivery folder. Returns false when there is nothing in it yet. */
 function pack(slug) {
   const dir = join(ORIG, slug);
   mkdirSync(dir, { recursive: true });          // keep every drop folder present
-  const gltf = readdirSync(dir).find((f) => f.toLowerCase().endsWith(".gltf"));
-  if (!gltf) return false;
+
+  // Either the .gltf sits in the folder — one model, tinted per finish at
+  // runtime — or the folder holds a subfolder per finish, each baked in its own
+  // wood colour. A baked colour lives in the texture and cannot be tinted, so
+  // those pack to <slug>-<finish>.glb and the page swaps the whole file.
+  const jobs = gltfIn(dir)
+    ? [[dir, slug + ".glb", true]]
+    : readdirSync(dir, { withFileTypes: true })
+        .filter((e) => e.isDirectory() && gltfIn(join(dir, e.name)))
+        // lowercased: a redelivered folder comes back as "Natural" as easily as
+        // "natural", and the URL in the product record cannot chase that
+        .map((e) => [join(dir, e.name), `${slug}-${e.name.toLowerCase()}.glb`, false]);
+  if (!jobs.length) return false;
 
   const product = JSON.parse(readFileSync(join("data", "products", slug + ".json"), "utf8"));
   const dims = (product.specs.find((s) => /dimension/i.test(s[0])) || [])[1] || "";
@@ -44,23 +59,30 @@ function pack(slug) {
     return false;
   }
 
-  // pack-glb does the renaming; check here so the warning names the real problem
-  const names = (JSON.parse(readFileSync(join(dir, gltf), "utf8")).materials || [])
-    .map((m) => m.name);
-  const wood = names.filter((n) => WOOD[slug]?.test(n) || /wood/i.test(n));
-  if (!wood.length)
-    console.warn(`  ! ${slug}: nothing matches /wood/i or its WOOD pattern — finish swatches` +
-      ` will do nothing. Materials: ${names.join(", ")}`);
+  for (const [src, out, tinted] of jobs) {
+    // pack-glb does the renaming; check here so the warning names the real problem
+    const names = (JSON.parse(readFileSync(join(src, gltfIn(src)), "utf8")).materials || [])
+      .map((m) => m.name);
+    const wood = tinted ? names.filter((n) => WOOD[slug]?.test(n) || /wood/i.test(n)) : [];
+    if (tinted && !wood.length)
+      console.warn(`  ! ${slug}: nothing matches /wood/i or its WOOD pattern — finish swatches` +
+        ` will do nothing. Materials: ${names.join(", ")}`);
 
-  console.log(`${slug}  (${gltf}, ${width} cm wide, wood: ${wood.join(", ") || "none"})`);
-  execFileSync(process.execPath,
-    ["tools/pack-glb.js", dir, join("public", "models", slug + ".glb"), width,
-     ...(WOOD[slug] ? [WOOD[slug].source] : [])],
-    { stdio: "inherit" });
+    console.log(`${out}  (${gltfIn(src)}, ${width} cm wide, ` +
+      (tinted ? `wood: ${wood.join(", ") || "none"})` : "finish baked in)"));
+    execFileSync(process.execPath,
+      ["tools/pack-glb.js", src, join("public", "models", out), width,
+       ...(tinted && WOOD[slug] ? [WOOD[slug].source] : [])],
+      { stdio: "inherit" });
+  }
 
-  if (product.model !== `/models/${slug}.glb`)
-    console.warn(`  ! ${slug}: data/products/${slug}.json still points at "${product.model}"` +
-      ` — change it to "/models/${slug}.glb"`);
+  // every packed file has to be reachable from the product record, or the page
+  // will keep loading whatever it pointed at before
+  const refs = [product.model, ...Object.values(product.models || {})];
+  for (const [, out] of jobs)
+    if (!refs.includes(`/models/${out}`))
+      console.warn(`  ! ${slug}: nothing in data/products/${slug}.json points at ` +
+        `"/models/${out}" — add it as "model" or under "models"`);
   return true;
 }
 

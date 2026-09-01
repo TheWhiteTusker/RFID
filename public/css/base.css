@@ -4,7 +4,7 @@
   --sage:#54655B; --sage-deep:#3D4A43; --wood:#68583C;
   --sage-line:rgba(84,101,91,.22); --sage-soft:rgba(84,101,91,.055);
   --line:rgba(84,101,91,.18); --muted:#7B7B7B;
-  --pad:clamp(18px,3vw,52px);
+  --pad:clamp(14px,2.4vw,48px);
   /* Liquid glass: a light pane and a sage-tinted pane, both blurring the arcs behind. */
   --blur:saturate(180%) blur(18px);
   --glass:rgba(250,248,238,.55);
@@ -17,6 +17,9 @@
 }
 
 *{box-sizing:border-box;margin:0}
+/* .personalise sets display:flex, which outranks the UA sheet's [hidden] rule —
+   without this, hiding a control the loaded model cannot drive silently fails. */
+[hidden]{display:none!important}
 html,body{height:100%}
 
 body{

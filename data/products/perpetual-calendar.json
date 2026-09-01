@@ -3,7 +3,12 @@
   "cat": "Desk & Workspace",
   "lede": "Experience the ultimate in perpetual organization with our Perpetual Calendar - Desk Calendar for Timeless Planning. This innovative desk calendar is designed to never expire, providing a lasting solution for your scheduling needs. Whether for your home office, corporate workspace, or personal use, this timeless calendar is the perfect tool for maintaining your daily, weekly, and monthly plans without the need for yearly replacements.",
   "price": "₹ 1,400",
-  "model": "/models/perpetual-calendar.glb",
+  "model": "/models/perpetual-calendar-natural.glb",
+  "models": {
+    "Walnut": "/models/perpetual-calendar-walnut.glb",
+    "Natural": "/models/perpetual-calendar-natural.glb",
+    "Black": "/models/perpetual-calendar-black.glb"
+  },
   "finishes": [
     [
       "Walnut",
