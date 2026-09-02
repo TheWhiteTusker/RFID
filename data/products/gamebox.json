@@ -3,11 +3,11 @@
   "cat": "Games & Puzzles",
   "lede": "Discover double the fun with our 2-in-1 Rubber Wood Game Box - Tic Tac Toe and Brainvita Set. Expertly crafted from premium rubber wood, this game box is designed for durability and style. Featuring two classic games in one compact set, you can enjoy Tic Tac Toe on one side and Brainvita on the other.",
   "price": "₹ 2,250",
-  "model": "/models/game-box/game-box-natural.glb",
+  "model": "/models/gamebox/gamebox-natural-box.glb",
   "models": {
-    "Walnut": "/models/game-box/game-box-walnut.glb",
-    "Natural": "/models/game-box/game-box-natural.glb",
-    "Black": "/models/game-box/game-box-black.glb"
+    "Walnut": "/models/gamebox/gamebox-walnut-box.glb",
+    "Natural": "/models/gamebox/gamebox-natural-box.glb",
+    "Black": "/models/gamebox/gamebox-black-box.glb"
   },
   "finishes": [
     [

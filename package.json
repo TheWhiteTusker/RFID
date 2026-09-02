@@ -9,7 +9,6 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "models": "node tools/gen-models.js",
     "pack": "node tools/pack.js",
     "pack:watch": "node tools/pack.js --watch"
   },
