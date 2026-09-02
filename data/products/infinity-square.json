@@ -3,11 +3,11 @@
   "cat": "Lighting",
   "lede": "The infinity lamp creates a stunning optical illusion of candles stretching off into the distance. Thanks to its clever optics, the infinity lamp makes one candle look like hundreds stretching off into infinity. The Infinity lamp features two squared glass mirrors, which, when positioned in the wooden base, create a round tunnel of reflecting lights. This modern lamp features a sleek square glass construction that creates an infinite illusion of light, adding a unique and stylish touch to any room.",
   "price": "₹ 3,500",
-  "model": "/models/infinity-square-natural.glb",
+  "model": "/models/infinity-square/infinity-square-natural.glb",
   "models": {
-    "Walnut": "/models/infinity-square-walnut.glb",
-    "Natural": "/models/infinity-square-natural.glb",
-    "Black": "/models/infinity-square-black.glb"
+    "Walnut": "/models/infinity-square/infinity-square-walnut.glb",
+    "Natural": "/models/infinity-square/infinity-square-natural.glb",
+    "Black": "/models/infinity-square/infinity-square-black.glb"
   },
   "finishes": [
     [

@@ -3,7 +3,12 @@
   "cat": "Desk & Workspace",
   "lede": "Upgrade your workspace with the DeskTask Desk Organizer, a versatile and stylish solution designed to keep your desk clutter-free and your productivity on track. Featuring a built-in To-Do List, Pen Stand, Stationery Holder, and Mobile Stand, this all-in-one organizer is perfect for managing your daily tasks and essential items efficiently.",
   "price": "₹ 3,630",
-  "model": "/models/desktask.glb",
+  "model": "/models/desktask/desktask-natural.glb",
+  "models": {
+    "Walnut": "/models/desktask/desktask-walnut.glb",
+    "Natural": "/models/desktask/desktask-natural.glb",
+    "Black": "/models/desktask/desktask-black.glb"
+  },
   "finishes": [
     [
       "Walnut",

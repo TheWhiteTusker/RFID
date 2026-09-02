@@ -41,14 +41,12 @@ function pack(slug) {
   // Either the .gltf sits in the folder — one model, tinted per finish at
   // runtime — or the folder holds a subfolder per finish, each baked in its own
   // wood colour. A baked colour lives in the texture and cannot be tinted, so
-  // those pack to <slug>-<finish>.glb and the page swaps the whole file.
+  // those pack to <slug>/<slug>-<finish>.glb and the page swaps the whole file.
   const jobs = gltfIn(dir)
-    ? [[dir, slug + ".glb", true]]
+    ? [[dir, join(slug, slug + ".glb"), true]]
     : readdirSync(dir, { withFileTypes: true })
         .filter((e) => e.isDirectory() && gltfIn(join(dir, e.name)))
-        // lowercased: a redelivered folder comes back as "Natural" as easily as
-        // "natural", and the URL in the product record cannot chase that
-        .map((e) => [join(dir, e.name), `${slug}-${e.name.toLowerCase()}.glb`, false]);
+        .map((e) => [join(dir, e.name), join(slug, `${slug}-${e.name.toLowerCase()}.glb`), false]);
   if (!jobs.length) return false;
 
   const product = JSON.parse(readFileSync(join("data", "products", slug + ".json"), "utf8"));
@@ -58,6 +56,8 @@ function pack(slug) {
     console.error(`${slug}: no "W <n> cm" in its Dimensions spec — skipped`);
     return false;
   }
+
+  mkdirSync(join("public", "models", slug), { recursive: true });
 
   for (const [src, out, tinted] of jobs) {
     // pack-glb does the renaming; check here so the warning names the real problem
@@ -79,10 +79,12 @@ function pack(slug) {
   // every packed file has to be reachable from the product record, or the page
   // will keep loading whatever it pointed at before
   const refs = [product.model, ...Object.values(product.models || {})];
-  for (const [, out] of jobs)
-    if (!refs.includes(`/models/${out}`))
+  for (const [, out] of jobs) {
+    const webPath = "/models/" + out.replace(/\\/g, "/");
+    if (!refs.includes(webPath))
       console.warn(`  ! ${slug}: nothing in data/products/${slug}.json points at ` +
-        `"/models/${out}" — add it as "model" or under "models"`);
+        `"${webPath}" — add it as "model" or under "models"`);
+  }
   return true;
 }
 

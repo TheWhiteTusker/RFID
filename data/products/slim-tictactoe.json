@@ -3,7 +3,12 @@
   "cat": "Games & Puzzles",
   "lede": "Experience endless fun with our Compact Slim Tic Tac Toe - Travel-Friendly Game. This sleek and stylish game is designed for easy transport and on-the-go entertainment. Made from durable materials, our slim Tic Tac Toe set is great for travel, family gatherings, and game nights. Whether you're a child or an adult, this game is a timeless classic that guarantees hours of enjoyment.",
   "price": "₹ 700",
-  "model": "/models/slim-tictactoe.glb",
+  "model": "/models/slim-tictactoe/slim-tictactoe-natural.glb",
+  "models": {
+    "Walnut": "/models/slim-tictactoe/slim-tictactoe-walnut.glb",
+    "Natural": "/models/slim-tictactoe/slim-tictactoe-natural.glb",
+    "Black": "/models/slim-tictactoe/slim-tictactoe-black.glb"
+  },
   "finishes": [
     [
       "Walnut",

@@ -35,7 +35,7 @@ function quat([rx, ry, rz]) {
   ];
 }
 
-function build(parts, rootRot) {
+function build(parts, rootRot, finishRgb) {
   const buf = [], bufferViews = [], accessors = [];
 
   const push = (arr, Type, target) => {
@@ -76,7 +76,9 @@ function build(parts, rootRot) {
 
   const usedMats = [...new Set(parts.map((p) => p.mat))];
   const materials = usedMats.map((k) => {
-    const m = MATERIALS[k];
+    const m = { ...MATERIALS[k] };
+    if (k === "wood" && finishRgb) m.c = [...finishRgb, 1];
+    if (k === "woodAlt" && finishRgb) m.c = [...finishRgb.map((v) => v * 0.55), 1];
     const out = {
       name: k,
       doubleSided: true,
@@ -117,7 +119,6 @@ function build(parts, rootRot) {
   nodes.push(root);
 
   // --- "Explode" animation: parts drift outward, hold, then reassemble ---
-  // The screen has no input device, so the model has to demonstrate itself.
   let R = 0;
   for (const p of parts) R = Math.max(R, Math.hypot(...p.pos) + Math.max(...p.size) / 2);
 
@@ -131,8 +132,6 @@ function build(parts, rootRot) {
     let d = p.pos.slice();
     const len = Math.hypot(...d);
     if (len < 0.002) {
-      // a part sitting on the centre has no outward direction, so it separates
-      // along its own longest axis (this is what splits the burr puzzle bars)
       const k = p.size.indexOf(Math.max(...p.size));
       d = [0, 0, 0]; d[k] = 1;
     } else {
@@ -160,4 +159,23 @@ function build(parts, rootRot) {
   };
 }
 
-export { MATERIALS, quat, build };
+function gltfToGlb(g) {
+  let bin = Buffer.alloc(0);
+  if (g.buffers?.[0]?.uri?.startsWith("data:")) {
+    bin = Buffer.from(g.buffers[0].uri.split(",")[1], "base64");
+    delete g.buffers[0].uri;
+    g.buffers[0].byteLength = bin.length;
+  }
+  const pB = (4 - (bin.length % 4)) % 4;
+  if (pB) bin = Buffer.concat([bin, Buffer.alloc(pB)]);
+  const jB = Buffer.from(JSON.stringify(g), "utf8");
+  const pJ = (4 - (jB.length % 4)) % 4;
+  const json = pJ ? Buffer.concat([jB, Buffer.alloc(pJ, 0x20)]) : jB;
+  const hJ = Buffer.alloc(8); hJ.writeUInt32LE(json.length, 0); hJ.writeUInt32LE(0x4E4F534A, 4);
+  const hB = Buffer.alloc(8); hB.writeUInt32LE(bin.length, 0); hB.writeUInt32LE(0x004E4942, 4);
+  const total = 12 + 8 + json.length + (bin.length ? 8 + bin.length : 0);
+  const h = Buffer.alloc(12); h.writeUInt32LE(0x46546C67, 0); h.writeUInt32LE(2, 4); h.writeUInt32LE(total, 8);
+  return Buffer.concat(bin.length ? [h, hJ, json, hB, bin] : [h, hJ, json]);
+}
+
+export { MATERIALS, quat, build, gltfToGlb };

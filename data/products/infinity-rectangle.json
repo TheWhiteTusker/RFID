@@ -3,11 +3,11 @@
   "cat": "Lighting",
   "lede": "The infinity lamp creates a stunning optical illusion of candles stretching off into the distance. Thanks to its clever optics, the infinity lamp makes one candle look like hundreds stretching off into infinity. The Infinity lamp features two rectangled glass mirrors, which, when positioned in the wooden base, create a round tunnel of reflecting lights. This modern lamp features a sleek square glass construction that creates an infinite illusion of light, adding a unique and stylish touch to any room.",
   "price": "₹ 3,500",
-  "model": "/models/infinity-rectangle-natural.glb",
+  "model": "/models/infinity-rectangle/infinity-rectangle-natural.glb",
   "models": {
-    "Walnut": "/models/infinity-rectangle-walnut.glb",
-    "Natural": "/models/infinity-rectangle-natural.glb",
-    "Black": "/models/infinity-rectangle-black.glb"
+    "Walnut": "/models/infinity-rectangle/infinity-rectangle-walnut.glb",
+    "Natural": "/models/infinity-rectangle/infinity-rectangle-natural.glb",
+    "Black": "/models/infinity-rectangle/infinity-rectangle-black.glb"
   },
   "finishes": [
     [
