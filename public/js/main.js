@@ -30,7 +30,13 @@ const ctx = {
     finish = f;
     markFinish(f);
     const url = modelFor(this.product(), f);
-    if (mv.getAttribute("src") === url) return applyFinish(mv, f);
+    if (mv.getAttribute("src") === url) {
+      // same file: only a single-file model is tintable. Tinting one whose finish
+      // is baked in flattens its texture to a flat colour, so re-tapping the
+      // swatch already showing would wreck the model it is showing.
+      if (!this.product().models) applyFinish(mv, f);
+      return;
+    }
     stage.classList.add("loading");
     mv.setAttribute("src", url);
   },
@@ -54,14 +60,20 @@ function show() {
   // setAttribute, not .src — assigning the property before the custom element
   // upgrades leaves an own property shadowing the accessor and nothing loads.
   mv.setAttribute("src", modelFor(PRODUCTS[slug], finish));
-  prefetchNeighbours(slug);
 }
 
-// Pull the neighbouring models into cache so the next tag read feels instant.
-function prefetchNeighbours(slug) {
+// Pull the neighbouring products, and this product's other finishes, into cache.
+// Each finish is its own 15-40 MB file, and .stage.loading hides the model while
+// one downloads — so without this the first tap on a swatch stares back blankly
+// for seconds and reads as the tap not registering. Called on load, not on show,
+// so a prefetch never competes with the model actually on screen.
+function prefetch(slug) {
   const i = KEYS.indexOf(slug);
-  for (const d of [1, -1]) {
-    const url = PRODUCTS[KEYS[(i + d + KEYS.length) % KEYS.length]].model;
+  const urls = [
+    ...Object.values(PRODUCTS[slug].models || {}),
+    ...[1, -1].map((d) => PRODUCTS[KEYS[(i + d + KEYS.length) % KEYS.length]].model),
+  ];
+  for (const url of new Set(urls)) {
     if (document.querySelector(`link[href="${url}"]`)) continue;
     const l = document.createElement("link");
     l.rel = "prefetch";
@@ -79,6 +91,7 @@ mv.addEventListener("load", () => {
   explode.refresh();                    // hide the button when there is no clip
   engraver.refresh();                   // and the name field when there is no plate
   showcase.start();
+  prefetch(router.current());
 });
 
 router.onChange(show);

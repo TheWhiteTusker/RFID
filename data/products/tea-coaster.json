@@ -1,0 +1,48 @@
+{
+  "_todo": "price, specs, feats and bulk tiers are placeholders — latticelane.com/products/coasters is an empty listing (no price, no body, no specs). Replace when the real trade terms land.",
+  "name": "Rubber Wood Tea Coaster Set",
+  "cat": "Desk & Workspace",
+  "lede": "A set of solid rubber wood coasters, turned and hand-finished, that protects a desk or table without looking like protection. The same timber and the same three finishes as the rest of the range, so it sits alongside anything else on the desk.",
+  "price": "Price on request",
+  "model": "/models/tea-coaster/tea-coaster-natural.glb",
+  "models": {
+    "Walnut": "/models/tea-coaster/tea-coaster-walnut.glb",
+    "Natural": "/models/tea-coaster/tea-coaster-natural.glb",
+    "Black": "/models/tea-coaster/tea-coaster-black.glb"
+  },
+  "finishes": [
+    ["Walnut", ""],
+    ["Natural", ""],
+    ["Black", ""]
+  ],
+  "specs": [
+    ["Dimensions", "TBC"],
+    ["Weight", "TBC"],
+    ["Material", "Rubber Wood"],
+    ["Country of Origin", "Made in India"]
+  ],
+  "feats": [
+    "Solid Rubber Wood",
+    "Three Matching Finishes",
+    "Heat and Moisture Resistant Finish",
+    "Stacks Compactly",
+    "Perfect Gift"
+  ],
+  "care": "Dust Periodically with a microfiber cloth and avoid excess heat and light and moisture",
+  "buy": "https://latticelane.com/products/coasters",
+  "perfectFor": "Corporate gifting, client appreciation, office and hospitality settings, and anyone who wants desk protection that still reads as craft",
+  "short": "Tea Coaster",
+  "bulk": {
+    "moq": 25,
+    "tiers": [
+      [25, "On request"],
+      [50, "On request"],
+      [100, "On request"]
+    ],
+    "lead": "10 working days",
+    "engraving": "Logo engraving included",
+    "dispatch": "Dispatch in 2-3 working days",
+    "shipping": "Free shipping on prepaid orders above ₹2,500",
+    "returns": "10-day returns"
+  }
+}
