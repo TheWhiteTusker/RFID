@@ -7,7 +7,7 @@
   "models": {
     "Walnut": "/models/gamebox/gamebox-walnut-box.glb",
     "Natural": "/models/gamebox/gamebox-natural-box.glb",
-    "Black": "/models/gamebox/gamebox-black-box.glb"
+    "Black": "/models/gamebox/gamebox-black-animation.glb"
   },
   "finishes": [
     [

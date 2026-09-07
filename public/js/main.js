@@ -1,10 +1,10 @@
-// Wires routing, data, view, choreography and the explode reveal together.
+// Wires routing, data, view, choreography and the animation reveal together.
 
 import * as router from "./router.js";
 import { render, markFinish } from "./view.js";
 import { apply as applyFinish, audit } from "./finish.js";
 import { createShowcase } from "./showcase.js";
-import { createExplode } from "./explode.js";
+import { createAnimator } from "./animate.js";
 import { createEngraver } from "./engrave.js";
 import { devNav } from "./devnav.js";   // dev only
 
@@ -45,7 +45,7 @@ const ctx = {
 };
 
 const showcase = createShowcase(mv, ctx);
-const explode = createExplode(mv, showcase);
+const animator = createAnimator(mv, showcase);
 const engraver = createEngraver(mv, showcase);
 
 router.init(KEYS);
@@ -53,7 +53,7 @@ devNav(PRODUCTS, KEYS);                 // dev only
 
 function show() {
   const slug = router.current();
-  explode.reset();
+  animator.reset();
   engraver.reset();
   render(PRODUCTS[slug], finish);
   stage.classList.add("loading");        // professional models are heavy; say so
@@ -88,7 +88,7 @@ mv.addEventListener("load", () => {
     audit(mv, router.current());        // shout early if an export is unusable
     applyFinish(mv, finish);
   }
-  explode.refresh();                    // hide the button when there is no clip
+  animator.refresh();                   // hide the button when there is no clip
   engraver.refresh();                   // and the name field when there is no plate
   showcase.start();
   prefetch(router.current());

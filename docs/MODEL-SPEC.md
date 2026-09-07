@@ -11,7 +11,7 @@ File names must match exactly — the app loads them by name:
 
 | File | Product |
 |---|---|
-| `gamebox-{walnut,natural,black}-{box,game}.glb` | Rubber Wood Game Box — Tic Tac Toe and Brainvita |
+| `gamebox-{walnut,natural}-{box,game}.glb`, `gamebox-black-animation.glb` | Rubber Wood Game Box — Tic Tac Toe and Brainvita |
 | `puzzle-3pc-{walnut,natural,black}.glb` | 3 Piece Puzzle |
 | `infinity-rectangle-{walnut,natural,black}.glb` | Infinity Lamp — Rectangle Glass |
 | `photo-frame-{walnut,natural,black}.glb` | Magnetic Photo Frame 4×4 |
@@ -51,23 +51,19 @@ Every product ships in **Walnut, Natural and Black**. Two acceptable ways:
   colour close to a light natural timber. The app tints it per finish. Do **not**
   bake a dark walnut tone into the base colour texture — it cannot be tinted back.
 
-## Explode animation
+## Animation (optional)
 
-The kiosk has a "Show what's inside" reveal that takes the product apart. Author one
-animation clip named exactly **`Explode`**:
+The kiosk shows a "See it in motion" button when a model carries an animation clip.
+Ship **at most one clip** per file — the app plays the first one it finds, so a
+second clip is unreachable. The name does not matter.
 
-| Time | State |
-|---|---|
-| `0.0s` | Fully assembled (rest pose) |
-| `1.3s` | Fully separated — parts moved outward along sensible axes |
-| `2.7s` | Still separated (hold — the app pauses here) |
-| `4.0s` | Back to the exact rest pose |
+The clip must **start and end on the exact same pose**, or the model drifts after
+repeated plays. Keep it under about 10 seconds; it plays once, straight through,
+with the rest of the page dimmed, and the idle camera resumes when it ends.
 
-The first and last keyframes must be **identical**, or the model drifts after
-repeated plays. Translation only is fine; rotation is welcome where it reads better
-(a lid hinging open, the burr puzzle bars sliding apart along their own axes).
-
-If a product has no meaningful interior, skip the clip — the app hides the button.
+Translation and rotation are both fine — a lid hinging open, a tray sliding out and
+returning. If a product has nothing to show in motion, skip the clip and the app
+hides the button.
 
 ## Budget
 
@@ -131,7 +127,7 @@ Open each file at <https://modelviewer.dev/editor/> and confirm:
 
 - it appears at a sensible size and sits on the ground plane
 - the material list contains a name with "wood" in it
-- the animation dropdown lists `Explode`, and it returns to rest when it finishes
+- the animation dropdown lists at most one clip, and it returns to rest when it finishes
 - variants (if supplied) list `Walnut`, `Natural`, `Black`
 
 ## Engraving surface (required)

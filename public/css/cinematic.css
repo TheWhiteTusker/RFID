@@ -1,12 +1,12 @@
-/* Cinematic explode: everything but the model gets out of the way. */
-body,header,.left,.right,.arcs,.hint,.finishes,#explode{
+/* Cinematic mode: everything but the model gets out of the way. */
+body,header,.left,.right,.arcs,.hint,.finishes,#animate{
   transition:opacity .7s ease,background .7s ease}
 main{transition:grid-template-columns .7s ease}
 
 body.cine{background:#12160F}
 
 body.cine header,body.cine .left,body.cine .right,
-body.cine .arcs,body.cine .hint,body.cine .finishes,body.cine #explode{
+body.cine .arcs,body.cine .hint,body.cine .finishes,body.cine #animate{
   opacity:0;pointer-events:none}
 
 /* the stage takes the whole page once the copy has cleared out */
@@ -15,8 +15,3 @@ body.cine main{grid-template-columns:0 minmax(0,1fr) 0}
 body.cine .frame::before{
   background:radial-gradient(circle,rgba(255,214,150,.16) 0%,rgba(18,22,15,0) 70%)}
 body.cine .frame::after{border-color:rgba(250,248,238,.12)}
-
-/* Dark glass on the dark stage — the light pane would swallow the cream label. */
-#reassemble{position:fixed;left:50%;bottom:38px;translate:-50% 0;z-index:9;
-  background:rgba(250,248,238,.12);border-color:rgba(250,248,238,.5);color:var(--cream)}
-#reassemble:hover{background:var(--cream);color:#12160F}

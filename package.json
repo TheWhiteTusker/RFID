@@ -10,7 +10,10 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "pack": "node tools/pack.js",
-    "pack:watch": "node tools/pack.js --watch"
+    "pack:watch": "node tools/pack.js --watch",
+    "check": "node tools/check-models.js"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }
