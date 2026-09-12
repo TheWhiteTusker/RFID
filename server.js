@@ -24,6 +24,12 @@ on("GET", "/", async (req, res) => {
 });
 
 on("GET", "/product/:slug", async (req, res, { slug }) => {
+  const resolved = store.resolveSlug(slug);
+  if (resolved !== slug) {
+    const q = req.url.includes("?") ? req.url.slice(req.url.indexOf("?")) : "";
+    res.writeHead(302, { Location: `/product/${resolved}${q}` });
+    return res.end();
+  }
   if (!(await store.get(slug))) return notFound(res, `No product "${slug}"`);
   return shell(req, res);
 });

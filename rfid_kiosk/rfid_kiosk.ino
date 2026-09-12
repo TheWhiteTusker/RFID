@@ -62,13 +62,12 @@ const char *SITE = "http://192.168.1.44:8080/product/";
 // Tap a tag, read the UID off Serial, paste it into the matching row. Blank rows are skipped.
 struct Tag { const char *uid; const char *slug; };
 const Tag TAGS[] = {
-  {"04:1C:3E:44:CA:2A:81", "game-box"},   // Rubber Wood Game Box
-  {"53:B2:11:7A", "slim-tictactoe"},      // Slim Tic Tac Toe
-  {"04:89:46:44:CA:2A:81", "puzzle-3pc"}, // 3 Piece Puzzle
-  {"04:7E:4C:44:CA:2A:81", "infinity-square"}, // Infinity Lamp, square
-  {"",            "infinity-rectangle"},  // Infinity Lamp, rectangle
-  {"04:66:44:45:CA:2A:81", "photo-frame"},// Magnetic Photo Frame 4x4
-  {"",            "desktask"},            // DeskTask organiser
+  {"04:1C:3E:44:CA:2A:81", "gamebox"},            // Rubber Wood Game Box
+  {"04:89:46:44:CA:2A:81", "puzzle-3pc"},          // 3 Piece Puzzle
+  {"04:7E:4C:44:CA:2A:81", "infinity-rectangle"},  // Infinity Lamp, rectangle
+  {"04:66:44:45:CA:2A:81", "photo-frame"},         // Magnetic Photo Frame 4x4
+  {"53:B2:11:7A",          "tea-coaster"},         // Rubber Wood Tea Coaster Set
+  {"",                     "desktask"},            // DeskTask organiser
   {"04:F6:57:44:CA:2A:81", "perpetual-calendar"}, // Perpetual Calendar
 };
 
